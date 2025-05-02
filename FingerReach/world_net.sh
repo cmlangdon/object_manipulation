@@ -4,13 +4,14 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
-#SBATCH --time=6:00:00
-
+#SBATCH --time=24:00:00
+#SBATCH --gres=gpu:1
 
 module purge
+module load cudatoolkit/12.6
 module load anaconda3/2022.5
 
 conda activate object_env
-python -u world_model.py
+python -u world_net.py
 
 
